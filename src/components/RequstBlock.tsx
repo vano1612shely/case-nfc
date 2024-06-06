@@ -36,7 +36,7 @@ export default function RequestBlock({ className }: { className?: string }) {
   };
   return (
     <div className={clsx("py-10 md:py-20 px-5 md:px-40 bg-primary", className)}>
-      <h1 className="font-semibold text-5xl leading-[50px] mb-10 text-center md:text-left text-white">
+      <h1 className="font-semibold text-4xl lg:text-5xl leading-[50px] mb-10 text-center md:text-left text-white">
         Залишити заявку
       </h1>
       <form
