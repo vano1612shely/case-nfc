@@ -1,4 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from "next";
+import { NextResponse } from "next/server";
 
 type DataType = {
   model?: string;
@@ -8,8 +8,8 @@ type DataType = {
   contact?: string;
 };
 
-const TELEGRAM_BOT_TOKEN = "6292118007:AAF2wEBMrPUKpS5rxvl23zxfkHzBJFrmQMU";
-const TELEGRAM_CHAT_ID = "524803435";
+const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
 async function sendTelegramMessage(message: string) {
   const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
@@ -26,33 +26,39 @@ async function sendTelegramMessage(message: string) {
   return response.json();
 }
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse,
-) {
-  console.log(1234);
-  if (req.method === "POST") {
-    const { model, color, count, name, contact }: DataType = req.body;
+export async function POST(req: Request) {
+  const { model, color, count, name, contact }: DataType = await req.json();
+  if (!name) {
+    return NextResponse.json({
+      message: "Ім'я не може бути порожнім",
+    });
+  }
+  if (!contact) {
+    return NextResponse.json({
+      message: "Контактні дані не можуть бути порожні",
+    });
+  }
+  let message = `Нова заявка:\nІм'я: ${name}\nКонтакт: ${contact}\n`;
+  if (model) {
+    message += `Модель: ${model}\n`;
+  }
+  if (color) {
+    message += `Колір: ${color}\n`;
+  }
+  if (count) {
+    message += `Кількість: ${count}\n`;
+  }
 
-    const message = `
-      Нова заявка:
-      Модель: ${model}
-      Колір: ${color}
-      Кількість: ${count}
-      Ім'я: ${name}
-      Контакт: ${contact}
-    `;
-
-    try {
-      await sendTelegramMessage(message);
-      return res
-        .status(200)
-        .json({ message: "Заявка відправленна успішно", data: req.body });
-    } catch (error) {
-      return res.status(500).json({
-        message: "Помилка",
-        error: error,
-      });
-    }
+  try {
+    await sendTelegramMessage(message);
+    return NextResponse.json({
+      message: "Заявка відправленна успішно",
+      data: req.body,
+    });
+  } catch (error) {
+    return NextResponse.json({
+      message: "Помилка",
+      error: error,
+    });
   }
 }

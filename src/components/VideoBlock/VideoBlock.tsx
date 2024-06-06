@@ -1,99 +1,74 @@
 "use client";
 import { clsx } from "clsx";
-import { useEffect, useRef, useState } from "react";
-import { Volume2, VolumeX } from "lucide-react";
+import Video from "@/components/VideoBlock/Video";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { type CarouselApi } from "@/components/ui/carousel";
+import { useEffect, useState } from "react";
 export default function VideoBlock({ className }: { className?: string }) {
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
   const [mute, setMute] = useState(true);
-  const vidRef = useRef(null);
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setCurrent(api.selectedScrollSnap() + 1);
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap() + 1);
+    });
+  }, [api]);
+  useEffect(() => {
+    console.log(current);
+  }, [current]);
   return (
-    <div className={clsx("w-full flex", className)}>
-      <div className="m-auto relative">
-        <button
-          className="absolute right-2 top-2 text-white z-10"
-          onClick={() => {
-            // @ts-ignore
-            setMute(!vidRef.current.muted);
-            // @ts-ignore
-            vidRef.current.muted = !vidRef.current.muted;
-          }}
-        >
-          {mute ? (
-            <VolumeX strokeWidth={2} size={30} />
-          ) : (
-            <Volume2 strokeWidth={2} size={30} />
-          )}
-        </button>
-        <video
-          ref={vidRef}
-          width="300"
-          muted
-          preload="auto"
-          playsInline
-          autoPlay
-          loop
-        >
-          <source src="/video3.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <div className="m-auto relative">
-        <button
-          className="absolute right-2 top-2 text-white z-10"
-          onClick={() => {
-            // @ts-ignore
-            setMute(!vidRef.current.muted);
-            // @ts-ignore
-            vidRef.current.muted = !vidRef.current.muted;
-          }}
-        >
-          {mute ? (
-            <VolumeX strokeWidth={2} size={30} />
-          ) : (
-            <Volume2 strokeWidth={2} size={30} />
-          )}
-        </button>
-        <video
-          ref={vidRef}
-          width="300"
-          muted
-          preload="auto"
-          playsInline
-          autoPlay
-          loop
-        >
-          <source src="/video1.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
-      <div className="m-auto relative">
-        <button
-          className="absolute right-2 top-2 text-white z-10"
-          onClick={() => {
-            // @ts-ignore
-            setMute(!vidRef.current.muted);
-            // @ts-ignore
-            vidRef.current.muted = !vidRef.current.muted;
-          }}
-        >
-          {mute ? (
-            <VolumeX strokeWidth={2} size={30} />
-          ) : (
-            <Volume2 strokeWidth={2} size={30} />
-          )}
-        </button>
-        <video
-          ref={vidRef}
-          width="300"
-          muted
-          preload="auto"
-          playsInline
-          autoPlay
-          loop
-        >
-          <source src="/video2.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </div>
+    <div className={clsx("py-10 lg:py-20 px-5 md:px-40", className)}>
+      <h1 className="font-semibold text-4xl lg:text-5xl leading-[50px] mb-10 text-center">
+        Огляди від наших клієнтів
+      </h1>
+      <Carousel
+        opts={{
+          loop: true,
+        }}
+        className="m-auto w-[250px] sm:w-full sm:max-w-2xl"
+        setApi={setApi}
+      >
+        <CarouselContent className="-ml-1">
+          <CarouselItem className="pl-4 md:basis-1/2 lg:basis-1/2">
+            <Video
+              videoSrc="/video1.mp4"
+              play={current === 1}
+              mute={mute}
+              setMute={setMute}
+            />
+          </CarouselItem>
+          <CarouselItem className="pl-4 md:basis-1/2 lg:basis-1/2">
+            <Video
+              videoSrc="/video2.mp4"
+              play={current === 2}
+              mute={mute}
+              setMute={setMute}
+            />
+          </CarouselItem>
+          <CarouselItem className="pl-4 md:basis-1/2 lg:basis-1/2">
+            <Video
+              videoSrc="/video3.mp4"
+              play={current === 3}
+              mute={mute}
+              setMute={setMute}
+            />
+          </CarouselItem>
+        </CarouselContent>
+        <CarouselPrevious className="border-black bg-transparent hover:bg-orange-400" />
+        <CarouselNext className="border-black bg-transparent hover:bg-orange-400" />
+      </Carousel>
     </div>
   );
 }
