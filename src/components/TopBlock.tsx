@@ -15,13 +15,14 @@ export default function TopBlock({ className }: { className?: string }) {
           Fashion Case <br />
           <span className="text-3xl">Born to love</span>
         </h1>
-        <p className="mb-5 text-xl lg:max-w-[70%]">
+        <CarouselBlock className="lg:hidden" />
+        <p className="mb-5 text-md lg:text-xl lg:max-w-[70%]">
           Уявіть свій чохол для телефону як полотно, яке динамічно змінюється
           відповідно до вашого стилю чи настрою. Як це круто? Футляр E Ink Case
           перетворює цю класну фантазію в реальність, змінюючи налаштування
           смартфона.
         </p>
-        <p className="mb-5 text-xl lg:max-w-[70%]">
+        <p className="mb-5 text-md lg:text-xl lg:max-w-[70%]">
           Налаштуйте свій футляр будь-чим, що ви хочете продемонструвати - будь
           то ваша улюблена знаменитість, ваш щоденний список справ, ваш девіз,
           логотип вашої компанії або навіть зображення вашої улюбленої тварини.
@@ -34,7 +35,7 @@ export default function TopBlock({ className }: { className?: string }) {
           </button>
         </RequestDialog>
       </div>
-      <CarouselBlock />
+      <CarouselBlock className="hidden lg:flex" />
     </div>
   );
 }

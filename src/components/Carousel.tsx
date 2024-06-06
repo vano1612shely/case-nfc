@@ -7,10 +7,11 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { clsx } from "clsx";
 
-export default function CarouselBlock() {
+export default function CarouselBlock({ className }: { className?: string }) {
   return (
-    <div className="flex-1 flex items-center justify-around">
+    <div className={clsx("flex-1 flex items-center justify-around", className)}>
       <Image
         src="/bg.png"
         width="2000"
