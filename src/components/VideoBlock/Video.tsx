@@ -27,6 +27,7 @@ export default function Video({
   }, [play]);
   useEffect(() => {
     if (vidRef.current) {
+      // @ts-ignore
       vidRef.current.load();
     }
   }, [videoSrc]);
