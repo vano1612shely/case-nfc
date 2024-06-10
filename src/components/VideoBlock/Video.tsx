@@ -45,6 +45,8 @@ export default function Video({
       <video
         ref={vidRef}
         muted={mute}
+        autoPlay
+        playsInline
         preload="auto"
         loop
         className="rounded-xl"
