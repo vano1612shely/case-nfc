@@ -15,19 +15,24 @@ export default function Video({
   mute: boolean;
   setMute: (mute: boolean) => void;
 }) {
-  const vidRef = useRef(null);
+  const vidRef = useRef<HTMLVideoElement>(null);
+
   useEffect(() => {
     if (play) {
-      // @ts-ignore
-      vidRef.current.play();
+      if (vidRef.current) {
+        vidRef.current.play().catch((error) => {
+          console.error("Error attempting to play video:", error);
+        });
+      }
     } else {
-      // @ts-ignore
-      vidRef.current.pause();
+      if (vidRef.current) {
+        vidRef.current.pause();
+      }
     }
   }, [play]);
+
   useEffect(() => {
     if (vidRef.current) {
-      // @ts-ignore
       vidRef.current.load();
     }
   }, [videoSrc]);
