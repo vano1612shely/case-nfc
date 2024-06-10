@@ -25,6 +25,11 @@ export default function Video({
       vidRef.current.pause();
     }
   }, [play]);
+  useEffect(() => {
+    if (vidRef.current) {
+      vidRef.current.load();
+    }
+  }, [videoSrc]);
   return (
     <div className={clsx("m-auto relative", className)}>
       <button
@@ -45,9 +50,7 @@ export default function Video({
       <video
         ref={vidRef}
         muted={mute}
-        autoPlay
-        playsInline
-        preload="auto"
+        preload="metadata"
         loop
         className="rounded-xl"
       >
