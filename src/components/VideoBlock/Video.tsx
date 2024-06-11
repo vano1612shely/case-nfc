@@ -43,7 +43,7 @@ export default function Video({
   // Handle user interaction to enable autoplay
   useEffect(() => {
     const handleInteraction = () => {
-      if (vidRef.current) {
+      if (vidRef.current && play) {
         vidRef.current.play();
       }
     };
