@@ -20,9 +20,12 @@ export default function Video({
   useEffect(() => {
     if (play) {
       if (vidRef.current) {
-        vidRef.current.play().catch((error) => {
-          console.error("Error attempting to play video:", error);
-        });
+        const playPromise = vidRef.current.play();
+        if (playPromise !== undefined) {
+          playPromise.catch((error) => {
+            console.error("Error attempting to play video:", error);
+          });
+        }
       }
     } else {
       if (vidRef.current) {
@@ -36,15 +39,33 @@ export default function Video({
       vidRef.current.load();
     }
   }, [videoSrc]);
+
+  // Handle user interaction to enable autoplay
+  useEffect(() => {
+    const handleInteraction = () => {
+      if (vidRef.current) {
+        vidRef.current.play();
+      }
+    };
+
+    document.addEventListener("click", handleInteraction);
+    document.addEventListener("touchstart", handleInteraction);
+
+    return () => {
+      document.removeEventListener("click", handleInteraction);
+      document.removeEventListener("touchstart", handleInteraction);
+    };
+  }, []);
+
   return (
     <div className={clsx("m-auto relative", className)}>
       <button
         className="absolute right-2 top-2 text-white z-10"
         onClick={() => {
-          // @ts-ignore
-          setMute(!vidRef.current.muted);
-          // @ts-ignore
-          vidRef.current.muted = !vidRef.current.muted;
+          setMute(!vidRef.current?.muted);
+          if (vidRef.current) {
+            vidRef.current.muted = !vidRef.current.muted;
+          }
         }}
       >
         {mute ? (
@@ -57,6 +78,7 @@ export default function Video({
         ref={vidRef}
         muted={mute}
         playsInline
+        autoPlay
         preload="auto"
         loop
         className="rounded-xl"
