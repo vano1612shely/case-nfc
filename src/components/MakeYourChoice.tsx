@@ -84,6 +84,7 @@ export default function MakeYourChoice({ className }: { className?: string }) {
           <div className="text-xl">
             Ціна:{" "}
             <span className="text-green-700 font-semibold">
+              <span className="old-price">{product.oldPrice}$</span>
               {product.price}₴
             </span>
           </div>

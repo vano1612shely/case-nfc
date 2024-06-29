@@ -74,3 +74,12 @@
       @apply bg-background text-foreground w-screen box-border;
     }
   }
+
+.old-price {
+ @apply relative mr-2 text-red-700;
+}
+
+.old-price::after {
+  content: "";
+  @apply h-0.5 w-full bg-red-700 absolute left-0 top-2.5 rotate-12;
+}

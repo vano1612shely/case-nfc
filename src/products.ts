@@ -14,6 +14,7 @@ export type ProductType = {
   model: Model;
   image: string;
   price: number;
+  oldPrice: number;
 };
 
 export const colorImages = {
@@ -28,53 +29,62 @@ export const products: ProductType[] = [
     model: Model.Iphone15,
     image: "15_black.png",
     price: 1299,
+    oldPrice: 1499,
   },
   {
     color: Color.White,
     model: Model.Iphone15,
     image: "15_white.png",
     price: 1299,
+    oldPrice: 1499,
   },
   {
     color: Color.Gray,
     model: Model.Iphone15,
     image: "15_gray.png",
     price: 1299,
+    oldPrice: 1499,
   },
   {
     color: Color.Black,
     model: Model.Iphone15Pro,
     image: "15promax_black.png",
     price: 1299,
+    oldPrice: 1499,
   },
   {
     color: Color.White,
     model: Model.Iphone15Pro,
     image: "15promax_white.png",
     price: 1299,
+    oldPrice: 1499,
   },
   {
     color: Color.Gray,
     model: Model.Iphone15Pro,
     image: "15promax_gray.png",
     price: 1299,
+    oldPrice: 1499,
   },
   {
     color: Color.Black,
     model: Model.Iphone15ProMax,
     image: "15promax_black.png",
     price: 1299,
+    oldPrice: 1499,
   },
   {
     color: Color.White,
     model: Model.Iphone15ProMax,
     image: "15promax_white.png",
     price: 1299,
+    oldPrice: 1499,
   },
   {
     color: Color.Gray,
     model: Model.Iphone15ProMax,
     image: "15promax_gray.png",
     price: 1299,
+    oldPrice: 1499,
   },
 ];
