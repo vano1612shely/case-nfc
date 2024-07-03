@@ -8,12 +8,14 @@ export default function Video({
   className,
   mute,
   setMute,
+  showBtn = true,
 }: {
   videoSrc: string;
   play: boolean;
   className?: string;
   mute: boolean;
   setMute: (mute: boolean) => void;
+  showBtn?: boolean;
 }) {
   const vidRef = useRef<HTMLVideoElement>(null);
 
@@ -59,21 +61,23 @@ export default function Video({
 
   return (
     <div className={clsx("m-auto relative", className)}>
-      <button
-        className="absolute right-2 top-2 text-white z-10"
-        onClick={() => {
-          setMute(!vidRef.current?.muted);
-          if (vidRef.current) {
-            vidRef.current.muted = !vidRef.current.muted;
-          }
-        }}
-      >
-        {mute ? (
-          <VolumeX strokeWidth={2} size={30} />
-        ) : (
-          <Volume2 strokeWidth={2} size={30} />
-        )}
-      </button>
+      {showBtn && (
+        <button
+          className="absolute right-2 top-2 text-white z-20"
+          onClick={() => {
+            setMute(!vidRef.current?.muted);
+            if (vidRef.current) {
+              vidRef.current.muted = !vidRef.current.muted;
+            }
+          }}
+        >
+          {mute ? (
+            <VolumeX strokeWidth={2} size={30} />
+          ) : (
+            <Volume2 strokeWidth={2} size={30} />
+          )}
+        </button>
+      )}
       <video
         ref={vidRef}
         muted={mute}

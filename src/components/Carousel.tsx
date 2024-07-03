@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import {
@@ -8,7 +9,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { clsx } from "clsx";
-
+import Autoplay from "embla-carousel-autoplay";
 export default function CarouselBlock({ className }: { className?: string }) {
   return (
     <div className={clsx("flex-1 flex items-center justify-around", className)}>
@@ -24,12 +25,17 @@ export default function CarouselBlock({ className }: { className?: string }) {
           opts={{
             loop: true,
           }}
+          plugins={[
+            Autoplay({
+              delay: 2000,
+            }),
+          ]}
         >
           <CarouselContent>
             <CarouselItem>
               <Image
                 alt="image"
-                src="/15promax_black.png"
+                src="/img1.png"
                 width="2000"
                 height="2000"
                 className="relative z-10 pointer-events-none w-[50%] md:w-[70%] mb-5 m-auto select-none"
@@ -38,16 +44,7 @@ export default function CarouselBlock({ className }: { className?: string }) {
             <CarouselItem>
               <Image
                 alt="image"
-                src="/15promax_white.png"
-                width="2000"
-                height="2000"
-                className="relative z-10 pointer-events-none w-[50%] md:w-[70%] mb-5 m-auto select-none"
-              />
-            </CarouselItem>
-            <CarouselItem>
-              <Image
-                alt="image"
-                src="/15promax_gray.png"
+                src="/img2.png"
                 width="2000"
                 height="2000"
                 className="relative z-10 pointer-events-none w-[50%] md:w-[70%] mb-5 m-auto select-none"

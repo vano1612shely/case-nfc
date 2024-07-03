@@ -18,9 +18,9 @@ export type ProductType = {
 };
 
 export const colorImages = {
-  Black: "15promax_black.png",
-  White: "15promax_white.png",
-  Gray: "15promax_gray.png",
+  Black: "black.png",
+  White: "white.png",
+  Gray: "gray.png",
 };
 
 export const products: ProductType[] = [

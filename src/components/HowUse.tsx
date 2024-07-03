@@ -1,17 +1,22 @@
+"use client";
 import Image from "next/image";
 import { ChevronsDown } from "lucide-react";
 import { clsx } from "clsx";
+import Video from "@/components/VideoBlock/Video";
+import { useState } from "react";
 export default function HowUse({ className }: { className?: string }) {
+  const [mute, setMute] = useState(true);
   return (
     <div id="howuse" className={clsx(className, "bg-primary")}>
       <div className="flex flex-col lg:flex-row items-center justify-between gap-10 px-5 lg:px-40 py-10 md:py-40">
         <div className="flex-1 relative">
-          <Image
-            src="/howuse2.png"
-            width={1000}
-            height={1000}
-            alt="case image"
-            className="relative z-10 w-[80%] lg:w-[600px] m-auto select-none pointer-events-none"
+          <Video
+            showBtn={false}
+            videoSrc="/video2.mp4"
+            play={true}
+            mute={mute}
+            setMute={setMute}
+            className="relative z-10 w-[300px] lg:w-[400px] m-auto select-none pointer-events-none"
           />
         </div>
         <div className="flex-1">
