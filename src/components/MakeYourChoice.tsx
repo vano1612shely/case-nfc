@@ -28,7 +28,7 @@ export default function MakeYourChoice({ className }: { className?: string }) {
             width={250}
             height={250}
             alt="product"
-            className="m-auto pointer-events-none select-none object-contain h-full"
+            className="m-auto pointer-events-none select-none object-contain h-full w-full"
           />
         </div>
         <div className="flex flex-col gap-5 flex-1">

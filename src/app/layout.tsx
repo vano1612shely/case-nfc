@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/toaster";
-
+import { GoogleAnalytics } from "@next/third-parties/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -24,6 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="uk" className="overflow-x-hidden">
+      <GoogleAnalytics gaId="AW-16633427596" />
       <body
         className={cn(
           "min-h-screen bg-white w-full overflow-x-hidden",

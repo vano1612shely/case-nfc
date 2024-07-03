@@ -35,6 +35,9 @@ export default function VideoBlock({ className }: { className?: string }) {
         className,
       )}
     >
+      <h1 className="font-semibold text-4xl lg:text-5xl leading-[50px] text-center">
+        Відео огляди
+      </h1>
       <Carousel
         opts={{
           loop: true,
@@ -71,9 +74,6 @@ export default function VideoBlock({ className }: { className?: string }) {
         <CarouselPrevious className="border-black bg-transparent hover:bg-orange-400" />
         <CarouselNext className="border-black bg-transparent hover:bg-orange-400" />
       </Carousel>
-      <h1 className="font-semibold text-4xl lg:text-5xl leading-[50px] text-center">
-        Відео огляди
-      </h1>
     </div>
   );
 }

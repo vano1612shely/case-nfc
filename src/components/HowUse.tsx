@@ -7,7 +7,7 @@ export default function HowUse({ className }: { className?: string }) {
       <div className="flex flex-col lg:flex-row items-center justify-between gap-10 px-5 lg:px-40 py-10 md:py-40">
         <div className="flex-1 relative">
           <Image
-            src="/howuse.png"
+            src="/howuse2.png"
             width={1000}
             height={1000}
             alt="case image"

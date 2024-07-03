@@ -13,8 +13,8 @@ export default function Home() {
       <main className="min-h-screen bg-white w-full">
         <TopBlock className="mb-20 w-full" />
         <HowUse className="mb-20 w-full" />
-        <MakeYourChoice className="mb-20 w-full" />
         <VideoBlock className="mb-20 w-full" />
+        <MakeYourChoice className="mb-20 w-full" />
         <RequestBlock />
       </main>
       <footer className="p-5 text-lg text-center w-full">
