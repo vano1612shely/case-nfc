@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
-
+import fetch from 'node-fetch';
+import https from 'https';
 type DataType = {
   model?: string;
   color?: string;
@@ -11,6 +12,10 @@ type DataType = {
 const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
+const agent = new https.Agent({
+  keepAlive: false,
+  family: 4,
+});
 async function sendTelegramMessage(message: string) {
   const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
   const response = await fetch(url, {
@@ -22,6 +27,7 @@ async function sendTelegramMessage(message: string) {
       chat_id: TELEGRAM_CHAT_ID,
       text: message,
     }),
+    agent
   });
   return response.json();
 }
