@@ -52,13 +52,13 @@ export default function RequestDialog({
 
       if (response.ok) {
         const result = await response.json();
-        toast({ title: "Заявка відправленна успішно" });
+        toast({ title: "Die Anfrage wurde erfolgreich gesendet." });
         // Optionally, reset the form or handle the result
       } else {
-        toast({ variant: "destructive", title: "Помилка, спробуйте пізніше" });
+        toast({ variant: "destructive", title: "Fehler, bitte versuchen Sie es später erneut." });
       }
     } catch (error) {
-      toast({ variant: "destructive", title: "Помилка, спробуйте пізніше" });
+      toast({ variant: "destructive", title: "Fehler, bitte versuchen Sie es später erneut." });
     }
     setData({ name: "", contact: "" });
     setOpen(false);
@@ -69,7 +69,7 @@ export default function RequestDialog({
         <DialogTrigger asChild>{children}</DialogTrigger>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Залишити заявку</DialogTitle>
+            <DialogTitle>Anfrage absenden</DialogTitle>
           </DialogHeader>
           <form onSubmit={handleSubmit}>
             <div className="flex flex-col gap-5">
@@ -82,7 +82,7 @@ export default function RequestDialog({
                   }
                 >
                   <SelectTrigger className="flex-1">
-                    <SelectValue placeholder="Модель:" />
+                    <SelectValue placeholder="Modell:" />
                   </SelectTrigger>
                   <SelectContent>
                     {Object.keys(Model).map((model) => {
@@ -105,7 +105,7 @@ export default function RequestDialog({
                   }
                 >
                   <SelectTrigger className="flex-1">
-                    <SelectValue placeholder="Колір:" />
+                    <SelectValue placeholder="Farbe:" />
                   </SelectTrigger>
                   <SelectContent>
                     {Object.keys(Color).map((color) => {
@@ -122,7 +122,7 @@ export default function RequestDialog({
                 </Select>
               </div>
               <Input
-                placeholder="Кількість:"
+                placeholder="Menge:"
                 type="number"
                 step="1"
                 min={1}
@@ -132,13 +132,13 @@ export default function RequestDialog({
                 }
               />
               <Input
-                placeholder="Ім'я"
+                placeholder="Name"
                 required
                 value={defaultValues?.name}
                 onChange={(e) => setData({ ...data, name: e.target.value })}
               />
               <Input
-                placeholder="Контактні дані (telegram, номер телефону, пошта):"
+                placeholder="Kontaktdaten (WhatsApp, Telefonnummer, E-Mail):"
                 required
                 value={defaultValues?.contact}
                 onChange={(e) => setData({ ...data, contact: e.target.value })}
@@ -147,7 +147,7 @@ export default function RequestDialog({
                 type="submit"
                 className="bg-orange-400 rounded-xl p-3 px-6 font-semibold hover:bg-orange-600 duration-200"
               >
-                Залишити заявку
+                Anfrage absenden
               </Button>
             </div>
           </form>

@@ -36,12 +36,13 @@ export async function POST(req: Request) {
   const { model, color, count, name, contact }: DataType = await req.json();
   if (!name) {
     return NextResponse.json({
-      message: "Ім'я не може бути порожнім",
+      message:
+          "Der Name darf nicht leer sein.",
     });
   }
   if (!contact) {
     return NextResponse.json({
-      message: "Контактні дані не можуть бути порожні",
+      message: "Die Kontaktdaten dürfen nicht leer sein.",
     });
   }
   let message = `Нова заявка:\nІм'я: ${name}\nКонтакт: ${contact}\n`;
@@ -58,12 +59,12 @@ export async function POST(req: Request) {
   try {
     await sendTelegramMessage(message);
     return NextResponse.json({
-      message: "Заявка відправленна успішно",
+      message: "Die Anfrage wurde erfolgreich gesendet.",
       data: req.body,
     });
   } catch (error) {
     return NextResponse.json({
-      message: "Помилка",
+      message: "Fehler",
       error: error,
     });
   }
