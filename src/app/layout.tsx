@@ -9,9 +9,9 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "NFC Case",
   description:
-    "NFC чохли з 4-кольорним дисплеєм для iphone 15, iphone 15 pro, iphone 15 pro max",
+    "NFC-Hüllen mit 4-Farb-Display für iPhone 15, iPhone 15 Pro, iPhone 15 Pro Max",
   keywords:
-    "nfc чохол, nfc case, iphone 15, iphone 15 pro, iphone 15 pro max, чохли для iphone, нфс чохли для айфону",
+      "NFC-Hülle, NFC Case, iPhone 15, iPhone 15 Pro, iPhone 15 Pro Max, Hüllen für iPhone, NFC-Hüllen für iPhone",
 };
 export const viewport: Viewport = {
   width: "device-width",

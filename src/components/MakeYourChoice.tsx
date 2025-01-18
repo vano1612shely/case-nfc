@@ -19,7 +19,7 @@ export default function MakeYourChoice({ className }: { className?: string }) {
   return (
     <div className={clsx(className, "px-5 md:px-40")} id="cases">
       <h1 className="font-semibold text-4xl lg:text-5xl leading-[50px] mb-20 text-center md:text-left">
-        Зробіть свій вибір
+        Treffen Sie Ihre Wahl
       </h1>
       <div className="flex flex-col items-center md:flex-row gap-10">
         <div className="flex-1 flex w-[200px] h-[300px] md:w-[400px] md:h-[400px]">
@@ -33,7 +33,7 @@ export default function MakeYourChoice({ className }: { className?: string }) {
         </div>
         <div className="flex flex-col gap-5 flex-1">
           <div className="flex flex-col gap-2">
-            <h3 className="text-xl">Колір :</h3>
+            <h3 className="text-xl">Farbe:</h3>
             <div className="flex gap-2">
               {Object.keys(colorImages).map((key) => {
                 const c = colorImages[key as keyof typeof colorImages];
@@ -60,7 +60,7 @@ export default function MakeYourChoice({ className }: { className?: string }) {
             </div>
           </div>
           <div className="flex flex-col gap-2">
-            <h3 className="text-xl">Модель: </h3>
+            <h3 className="text-xl">Modell: </h3>
             <div className="flex gap-2">
               {Object.keys(Model).map((key) => {
                 return (
@@ -82,10 +82,10 @@ export default function MakeYourChoice({ className }: { className?: string }) {
             </div>
           </div>
           <div className="text-xl">
-            Ціна:{" "}
+            Preis:{" "}
             <span className="text-green-700 font-semibold">
-              <span className="old-price">{product.oldPrice}$</span>
-              {product.price}₴
+              <span className="old-price">{product.oldPrice}€</span>
+              {product.price}€
             </span>
           </div>
           <div>
@@ -93,7 +93,7 @@ export default function MakeYourChoice({ className }: { className?: string }) {
               defaultValues={{ color: color, model: model, count: 1 }}
             >
               <button className="bg-orange-400 rounded-xl p-3 px-6 font-semibold hover:bg-orange-600 duration-200">
-                Замовити зараз
+                Jetzt bestellen
               </button>
             </RequestDialog>
           </div>

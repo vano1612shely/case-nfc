@@ -17,21 +17,15 @@ export default function TopBlock({ className }: { className?: string }) {
         </h1>
         <CarouselBlock className="lg:hidden" />
         <p className="mb-5 text-md lg:text-xl lg:max-w-[70%]">
-          Уявіть свій чохол для телефону як полотно, яке динамічно змінюється
-          відповідно до вашого стилю чи настрою. Як це круто? Футляр E Ink Case
-          перетворює цю класну фантазію в реальність, змінюючи налаштування
-          смартфона.
+          Stellen Sie sich Ihre Handyhülle als Leinwand vor, die sich dynamisch je nach Ihrem Stil oder Ihrer Stimmung verändert. Wie cool ist das? Die E Ink Case-Hülle verwandelt diese coole Fantasie in Realität, indem sie die Einstellungen Ihres Smartphones anpasst.
         </p>
         <p className="mb-5 text-md lg:text-xl lg:max-w-[70%]">
-          Налаштуйте свій футляр будь-чим, що ви хочете продемонструвати - будь
-          то ваша улюблена знаменитість, ваш щоденний список справ, ваш девіз,
-          логотип вашої компанії або навіть зображення вашої улюбленої тварини.
-          Можливості безмежні, і кожен обраний вами дизайн робить ваш чохол для
-          телефону унікальним початком розмови.
+
+          Passen Sie Ihre Hülle an, um alles zu zeigen, was Sie möchten – sei es Ihr Lieblingspromi, Ihre tägliche To-Do-Liste, Ihr Motto, das Logo Ihres Unternehmens oder sogar ein Bild Ihres Lieblingstiers. Die Möglichkeiten sind grenzenlos, und jedes Design, das Sie wählen, macht Ihre Handyhülle zu einem einzigartigen Gesprächsstarter.
         </p>
         <RequestDialog defaultValues={{}}>
           <button className="p-3 px-6 bg-orange-400 rounded-xl hover:bg-orange-600 duration-200 font-semibold">
-            Купити зараз
+            Jetzt kaufen
           </button>
         </RequestDialog>
       </div>

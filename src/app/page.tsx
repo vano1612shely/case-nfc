@@ -18,7 +18,7 @@ export default function Home() {
         <RequestBlock />
       </main>
       <footer className="p-5 text-lg text-center w-full">
-        Copyright © 2024 CASE-NFC. Усі права захищено.
+          Copyright © 2024 CASE-NFC. Alle Rechte vorbehalten.
       </footer>
     </>
   );

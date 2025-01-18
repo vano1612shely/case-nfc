@@ -23,13 +23,15 @@ export default function RequestBlock({ className }: { className?: string }) {
 
       if (response.ok) {
         const result = await response.json();
-        toast({ title: "Заявка відправленна успішно" });
+        toast({ title: "Die Anfrage wurde erfolgreich gesendet." });
         // Optionally, reset the form or handle the result
       } else {
-        toast({ variant: "destructive", title: "Помилка, спробуйте пізніше" });
+        toast({ variant: "destructive", title:
+              "Fehler, bitte versuchen Sie es später erneut." });
       }
     } catch (error) {
-      toast({ variant: "destructive", title: "Помилка, спробуйте пізніше" });
+      toast({ variant: "destructive", title:
+            "Fehler, bitte versuchen Sie es später erneut." });
     }
     setContact("");
     setName("");
@@ -37,7 +39,7 @@ export default function RequestBlock({ className }: { className?: string }) {
   return (
     <div className={clsx("py-10 md:py-20 px-5 md:px-40 bg-primary", className)}>
       <h1 className="font-semibold text-4xl lg:text-5xl leading-[50px] mb-10 text-center md:text-left text-white">
-        Залишити заявку
+        Anfrage absenden
       </h1>
       <form
         className="flex justify-between gap-10 flex-wrap"
@@ -49,7 +51,7 @@ export default function RequestBlock({ className }: { className?: string }) {
           required
           className="flex-1 rounded-xl p-5 text-lg h-14 min-w-[200px]"
           type="text"
-          placeholder="Ім'я:"
+          placeholder="Name:"
         />
         <Input
           value={contact}
@@ -57,13 +59,13 @@ export default function RequestBlock({ className }: { className?: string }) {
           required
           className="flex-1 rounded-xl p-5 text-lg h-14 min-w-[200px]"
           type="text"
-          placeholder="Телеграм або пошта:"
+          placeholder="E-Mail oder WhatsApp:"
         />
         <Button
           type="submit"
           className="flex-1 rounded-xl bg-orange-400 hover:bg-orange-600 text-lg h-14 min-w-[200px]"
         >
-          Залишити заявку
+          Anfrage absenden
         </Button>
       </form>
     </div>

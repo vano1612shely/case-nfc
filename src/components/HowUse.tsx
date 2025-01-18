@@ -31,23 +31,18 @@ export default function HowUse({ className }: { className?: string }) {
           </div>
           <div className="relative z-10 flex flex-col gap-5 text-xl text-center lg:text-right text-white w-full">
             <h1 className="font-semibold  text-4xl lg:text-5xl leading-[50px] mb-10">
-              Як використовувати?
+              Wie verwendet man es?
             </h1>
             <p>
-              Помістіть телефон у чохол із електронним чорнилом для
-              автоматичного з’єднання NFC.
+              Legen Sie das Telefon in die E-Ink-Hülle, um eine automatische NFC-Verbindung herzustellen.
             </p>
             <ChevronsDown size={50} className="m-auto" />
             <p>
-              Завантажити: відскануйте QR-код на упаковці або знайдіть додаток
-              Ink Show в офіційному магазині.
+              Herunterladen: Scannen Sie den QR-Code auf der Verpackung oder suchen Sie die Ink Show-App im offiziellen Store.
             </p>
             <ChevronsDown size={50} className="m-auto" />
             <p>
-              Почніть створювати: реєстрація не потрібна. Натисніть кнопку [GO],
-              щоб розпочати саморобне створення, наприклад додати нове
-              зображення/текст, довільно відредагувати його та створити назву
-              вашої роботи. Завершіть [Cast Screen], щоб оновити свою справу.{" "}
+              Beginnen Sie zu erstellen: Eine Registrierung ist nicht erforderlich. Drücken Sie die Schaltfläche [GO], um mit der Erstellung zu beginnen, zum Beispiel ein neues Bild/Text hinzuzufügen, es nach Belieben zu bearbeiten und den Titel Ihrer Arbeit zu erstellen. Beenden Sie mit [Cast Screen], um Ihre Arbeit zu aktualisieren.
             </p>
           </div>
         </div>

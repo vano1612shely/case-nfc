@@ -31,7 +31,7 @@ export default function Header({ className }: { className?: string }) {
               className="hover:bg-orange-400 p-3 rounded-xl duration-200"
               onClick={() => setShowMenu(false)}
             >
-              Головна
+              Startseite
             </Link>
           </li>
           <li>
@@ -40,7 +40,7 @@ export default function Header({ className }: { className?: string }) {
               className="hover:bg-orange-400 p-3 rounded-xl duration-200"
               onClick={() => setShowMenu(false)}
             >
-              Як використовувати?
+              Wie benutzt man es?
             </Link>
           </li>
           <li>
@@ -49,7 +49,7 @@ export default function Header({ className }: { className?: string }) {
               className="hover:bg-orange-400 p-3 rounded-xl duration-200"
               onClick={() => setShowMenu(false)}
             >
-              Чохли
+              Hüllen
             </Link>
           </li>
           <li>
@@ -58,7 +58,7 @@ export default function Header({ className }: { className?: string }) {
                 className="bg-orange-400 rounded-xl p-3 px-6 hover:bg-orange-600 duration-200"
                 onClick={() => setShowMenu(false)}
               >
-                Замовити зараз
+                Jetzt bestellen
               </button>
             </RequestDialog>
           </li>
