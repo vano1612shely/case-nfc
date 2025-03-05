@@ -36,7 +36,7 @@ export default function VideoBlock({ className }: { className?: string }) {
       )}
     >
       <h1 className="font-semibold text-4xl lg:text-5xl leading-[50px] text-center">
-        Відео огляди
+        Video-Bewertungen
       </h1>
       <Carousel
         opts={{
