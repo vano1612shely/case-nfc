@@ -25,9 +25,6 @@ export default function VideoBlock({ className }: { className?: string }) {
       setCurrent(api.selectedScrollSnap() + 1);
     });
   }, [api]);
-  useEffect(() => {
-    console.log(current);
-  }, [current]);
   return (
     <div
       className={clsx(
